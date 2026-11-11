@@ -1,0 +1,6 @@
+node_modules
+dist
+web/dist
+server/vendor
+package-lock.json
+.context

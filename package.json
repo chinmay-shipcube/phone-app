@@ -1,0 +1,60 @@
+{
+  "name": "cell-decor-pos",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Cell Decor billing system: staff bill on their phones, the shop laptop saves and prints.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,cyan \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "tsx watch server/src/index.ts",
+    "dev:web": "vite --config web/vite.config.ts",
+    "build": "vite build --config web/vite.config.ts && tsc -p server/tsconfig.json",
+    "start": "node dist/server/src/index.js",
+    "migrate": "tsx server/src/db/migrate.ts",
+    "create-admin": "tsx server/src/scripts/createAdmin.ts",
+    "lint": "tsc -p server/tsconfig.json --noEmit && tsc -p web/tsconfig.json --noEmit",
+    "test": "vitest run",
+    "printer:list": "node server/vendor/universal-printer.cjs list",
+    "printer:test": "node server/vendor/universal-printer.cjs test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@tanstack/react-query": "^5.107.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^4.17.25",
+    "@types/node": "^22.20.5",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/supertest": "^6.0.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "concurrently": "^9.2.5",
+    "lucide-react": "^0.546.0",
+    "prettier": "^3.9.10",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "supertest": "^7.3.2",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "~5.8.2",
+    "vite": "^6.4.6",
+    "vitest": "^3.2.7"
+  },
+  "license": "UNLICENSED",
+  "author": "Technoshree Technologies Pvt Ltd"
+}

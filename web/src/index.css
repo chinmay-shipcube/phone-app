@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+/* Cell Decor colours: the navy of the logo and of "CELL" on the shop counter, white, and black. */
+@theme {
+  --color-brand-950: #070f1f;
+  --color-brand-900: #0b1a33;
+  --color-brand-800: #13254a;
+  --color-brand-700: #1c2e57;
+  --color-brand-600: #27417a;
+  --color-brand-500: #3a5aa0;
+  --color-brand-200: #c9d5ea;
+  --color-brand-100: #e3eaf6;
+  --color-brand-50: #f3f6fb;
+  --color-ink: #0f1115;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-white text-ink antialiased;
+  font-family: var(--font-sans);
+}
+
+/* iOS zooms into inputs smaller than 16px; keep them at 16px on phones. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
